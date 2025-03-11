@@ -9,14 +9,17 @@ const Navbar = async () => {
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
         <Link href="/">
-          <Image src="/logo.png" alt="logo" width={144} height={30} />
+          <Image src="/s.png" alt="logo" width={144} height={30} />
         </Link>
 
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
             <>
-              <Link href="/startup/create">
-                <span className="max-sm:hidden">Create</span>
+              <Link href="/">
+                <span>Home</span>
+              </Link>
+              <Link href="/product/create">
+                <span className="max-sm:hidden">Add Listing</span>
               </Link>
 
               <form
@@ -32,7 +35,7 @@ const Navbar = async () => {
               </form>
 
               <Link href={`/user/${session?.id}`}>
-                <span>{session?.user?.name}</span>
+                <span className="max-sm:hidden">{session?.user?.name}</span>
               </Link>
             </>
           ) : (

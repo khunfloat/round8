@@ -1,5 +1,8 @@
-import SerchForm from "@/components/SerchForm";
-import StartupCard from "@/components/StartupCard";
+import { auth } from "@/auth";
+import SearchForm from "@/components/SearchForm";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({
   searchParams,
@@ -7,53 +10,45 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const params = { search: query || null };
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: {
-        _id: 1,
-        name: "Chayoot Kositwanich",
-      },
-      _id: 1,
-      description: "This is a discription.",
-      image:
-        "https://economictimes.indiatimes.com/thumb/msid-117612520,width-1200,height-900,resizemode-4,imgsize-52680/after-deepseeks-success-in-ai-now-ubtech-chinese-robot-maker-plans-to-mass-produce-industrial-humanoid-robots-by-year-end.jpg",
-      category: "Robots",
-      title: "We Robots",
-    },
-  ];
+  const session = await auth();
+  console.log(session?.id);
+
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
   return (
     <>
       <section className="block_container">
         <h1 className="heading">
-          Pitch Your Startup, <br /> Connect With Entrepreeneurs
+          Sustainable Shopping,
+          <br />
+          Endless Possibilities
         </h1>
 
         <p className="sub-heading !max-w-3xl">
-          Submit Ideas, Vote on Pitches, and Get Noticed in Virtual
-          Competitions.
+          Shop, Reuse, and Make an Impact
         </p>
 
-        <SerchForm query={query} />
+        <SearchForm query={query} />
       </section>
 
       <section className="section_container">
         <p className="text-30-semibold">
-          {query ? `Search results for "${query}"` : "All Startups"}
+          {query ? `Search results for "${query}"` : "All Products"}
         </p>
 
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-            posts.map((post: StartupCardType, index: number) => (
+            posts.map((post: StartupTypeCard, index: number) => (
               <StartupCard key={post?._id} post={post} />
             ))
           ) : (
-            <p className="no-results">No startups found</p>
+            <p className="no-results">No products found</p>
           )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }

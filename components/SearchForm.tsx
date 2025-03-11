@@ -2,14 +2,14 @@ import SearchFormReset from "@/components/SearchFormReset";
 import { Search } from "lucide-react";
 import Form from "next/form";
 
-function SerchForm({ query }: { query?: string }) {
+function SearchForm({ query }: { query?: string }) {
   return (
     <Form action="/" scroll={false} className="search-form">
       <input
         name="query"
         defaultValue={query}
         className="search-input"
-        placeholder="Search Startups"
+        placeholder="Search products"
       />
 
       <div className="flex gap-2">
@@ -23,4 +23,4 @@ function SerchForm({ query }: { query?: string }) {
   );
 }
 
-export default SerchForm;
+export default SearchForm;
