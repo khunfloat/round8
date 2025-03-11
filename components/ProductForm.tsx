@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { useActionState, useState } from "react";
 import { z } from "zod";
 
-const StartupForm = () => {
+const ProductForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState("");
   const { toast } = useToast();
@@ -141,30 +141,6 @@ const StartupForm = () => {
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
       </div>
 
-      {/* <div data-color-mode="light">
-        <label htmlFor="pitch" className="startup-form_label">
-          Description
-        </label>
-
-        <MDEditor
-          value={pitch}
-          onChange={(value) => setPitch(value as string)}
-          id="pitch"
-          preview="edit"
-          height={300}
-          style={{ borderRadius: 20, overflow: "hidden" }}
-          textareaProps={{
-            placeholder:
-              "Briefly describe your idea and what problem it solves",
-          }}
-          previewOptions={{
-            disallowedElements: ["style"],
-          }}
-        />
-
-        {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
-      </div> */}
-
       <Button
         type="submit"
         className="startup-form_btn text-white"
@@ -177,4 +153,4 @@ const StartupForm = () => {
   );
 };
 
-export default StartupForm;
+export default ProductForm;

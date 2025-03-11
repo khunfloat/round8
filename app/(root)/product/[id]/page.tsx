@@ -8,7 +8,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+import ProductCard, { StartupTypeCard } from "@/components/ProductCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
 import markdownit from "markdown-it";
@@ -84,7 +84,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
             <ul className="mt-7 card_grid-sm">
               {editorPosts.map((post: StartupTypeCard, i: number) => (
-                <StartupCard key={i} post={post} />
+                <ProductCard key={i} post={post} />
               ))}
             </ul>
           </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
-const StartupCard = ({ post }: { post: StartupTypeCard }) => {
+const ProductCard = ({ post }: { post: StartupTypeCard }) => {
   const { views, author, title, category, _id, image, description, price } =
     post;
 
@@ -67,4 +67,4 @@ export const StartupCardSkeleton = () => (
   </>
 );
 
-export default StartupCard;
+export default ProductCard;

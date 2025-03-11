@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import StartupForm from "@/components/StartupForm";
+import ProductForm from "@/components/ProductForm";
 import { redirect } from "next/navigation";
 
 const Page = async () => {
@@ -13,7 +13,7 @@ const Page = async () => {
         <h1 className="heading">List Your Item</h1>
       </section>
 
-      <StartupForm />
+      <ProductForm />
     </>
   );
 };

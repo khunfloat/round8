@@ -1,8 +1,8 @@
-import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/ProductCard";
 import { client } from "@/sanity/lib/client";
 import { STARTUPS_BY_AUTHOR_QUERY } from "@/sanity/lib/queries";
 
-const UserStartups = async ({ id }: { id: string }) => {
+const UserProducts = async ({ id }: { id: string }) => {
   const startups = await client.fetch(STARTUPS_BY_AUTHOR_QUERY, { id });
 
   return (
@@ -17,4 +17,4 @@ const UserStartups = async ({ id }: { id: string }) => {
     </>
   );
 };
-export default UserStartups;
+export default UserProducts;
