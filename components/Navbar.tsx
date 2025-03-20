@@ -16,10 +16,10 @@ const Navbar = async () => {
           {session && session?.user ? (
             <>
               <Link href="/">
-                <span>Home</span>
+                <span className="max-sm:hidden">Home</span>
               </Link>
               <Link href="/product/create">
-                <span className="max-sm:hidden">Add Listing</span>
+                <span>Add Listing</span>
               </Link>
 
               <form

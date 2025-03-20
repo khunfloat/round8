@@ -146,7 +146,7 @@ const ProductForm = () => {
         className="startup-form_btn text-white"
         disabled={isPending}
       >
-        {isPending ? "Submitting..." : "Submit Your Pitch"}
+        {isPending ? "Submitting..." : "List Your Item"}
         <Send className="size-6 ml-2" />
       </Button>
     </form>
